@@ -217,23 +217,29 @@ public class App extends javax.swing.JFrame {
         String cntry = country.getSelectedItem().toString();
         String doct_type = docType.getSelectedItem().toString();
         String where = saveDir.getText();
+        if (! where.isEmpty()){
+            String path = where;
+            String mainPath = Utils.addValid(path);
 
-        String path = where;
-        String mainPath = Utils.addValid(path);
+    //        String startDate = "2018-01-01";
+    //        String endDate = "2018-01-12";
+    //        String lndinstr = "Investment Project Financing";
+    //        String projID = "";
 
-//        String startDate = "2018-01-01";
-//        String endDate = "2018-01-12";
-//        String lndinstr = "Investment Project Financing";
-//        String projID = "";
+            String API = Utils.requestAPI(cntry, str_Date, end_Date, doct_type, projid, 10);
+            System.out.println(API);
+            try {
+                JsonObject docs = Utils.responseAPI(API);
+                Downloader.downloadFiles(docs, mainPath);
+                System.out.println("Downloaded in" + where);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
 
-        String API = Utils.requestAPI(cntry, str_Date, end_Date, doct_type, projid, 10);
-        System.out.println(API);
-        try {
-            JsonObject docs = Utils.responseAPI(API);
-            Downloader.downloadFiles(docs, mainPath);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        }else{
+            System.out.println("Ingrese un Path Valido");
         }
+
 //
 
     }//GEN-LAST:event_downloadButtonActionPerformed
