@@ -267,6 +267,7 @@ public class Cod {
     public static String getCode(String country){
         initializeCountries();
         String code = dict_country.get(country);
+        System.out.println(country + ": " + code);
         return code;
     }
 

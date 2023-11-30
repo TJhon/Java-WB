@@ -80,7 +80,7 @@ public class Utils {
             String project_id1,
             int rows
     )     {
-        String mainURL = "https://search.worldbank.org/api/v2/wds?format=json&fct=docty_exact&docty_key=540656";
+        String mainURL = "https://search.worldbank.org/api/v2/wds?format=json&fct=docty_exact,count_exact,lang_exact,disclstat_exact&apilang=en&docty_key=540656&order=desc&os=0&srt=docdt";
         String cod_country1 = Cod.getCode(country1);
         String lndinstr1 = validString(lndinstr);
         String start_date = validString(start_date1);
@@ -93,7 +93,7 @@ public class Utils {
             return mainURL + "&projectid=" + project_id + "&rows=1";
         }
         if (cod_country != null) {
-            mainURL = mainURL + "&contrycode_exact=" + cod_country;
+            mainURL = mainURL + "&countrycode_exact=" + cod_country;
         }
         if (lndinstr != null) {
             mainURL = mainURL + "&lndinstr=" + lndinstr.replace(" ", "+");
