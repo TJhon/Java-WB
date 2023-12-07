@@ -45,7 +45,7 @@ public class App extends JFrame{
     }
 
     public static void main(String[] args) {
-        App1 desk = new App1();
+        AppBackend desk = new AppBackend();
         desk.setVisible(true);
         
 

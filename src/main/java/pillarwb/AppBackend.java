@@ -10,9 +10,9 @@ import com.google.gson.JsonObject;
  *
  * @author Jhon
  */
-public class App1 extends javax.swing.JFrame {
+public class AppBackend extends javax.swing.JFrame {
 
-    public App1() {
+    public AppBackend() {
         initComponents();
     }
 
