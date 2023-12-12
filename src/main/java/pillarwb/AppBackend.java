@@ -19,6 +19,10 @@ public class AppBackend extends javax.swing.JFrame {
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // The above code is defining a method called "initComponents" in a Java class. This method is
+    // likely used to initialize and set up the components of a graphical user interface (GUI) or any
+    // other necessary components for the class. However, without the complete code, it is difficult to
+    // determine the exact purpose and functionality of this method.
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
@@ -201,6 +205,15 @@ public class AppBackend extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * The downloadButtonActionPerformed function downloads files from the World Bank API based on user
+     * input.
+     * 
+     * @param evt The `evt` parameter is an `ActionEvent` object that represents the action event that
+     * occurred. It provides information about the event, such as the source of the event and the type
+     * of event. In this case, it is used to handle the action performed when the download button is
+     * clicked.
+     */
     private void downloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_downloadButtonActionPerformed
         String projid = projID.getText();
         String str_Date = startDate.getText();
