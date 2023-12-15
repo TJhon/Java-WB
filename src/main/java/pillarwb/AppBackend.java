@@ -2,25 +2,27 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package GUI;
+package pillarwb;
 
-import Downloader.Downloader;
-import Utils.Utils;
 import com.google.gson.JsonObject;
 
 /**
  *
  * @author Jhon
  */
-public class App extends javax.swing.JFrame {
+public class AppBackend extends javax.swing.JFrame {
 
-    public App() {
+    public AppBackend() {
         initComponents();
     }
 
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // The above code is defining a method called "initComponents" in a Java class. This method is
+    // likely used to initialize and set up the components of a graphical user interface (GUI) or any
+    // other necessary components for the class. However, without the complete code, it is difficult to
+    // determine the exact purpose and functionality of this method.
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
@@ -62,10 +64,10 @@ public class App extends javax.swing.JFrame {
         jLabel3.setText("Save Directory:");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel4.setText("Start Date (aaaa-mm-dd):");
+        jLabel4.setText("Start Date (yyyy-mm-dd):");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel5.setText("End Date (aaaa-mm-dd):");
+        jLabel5.setText("End Date (yyyy-mm-dd):");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setText("Project ID:");
@@ -203,6 +205,15 @@ public class App extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * The downloadButtonActionPerformed function downloads files from the World Bank API based on user
+     * input.
+     * 
+     * @param evt The `evt` parameter is an `ActionEvent` object that represents the action event that
+     * occurred. It provides information about the event, such as the source of the event and the type
+     * of event. In this case, it is used to handle the action performed when the download button is
+     * clicked.
+     */
     private void downloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_downloadButtonActionPerformed
         String projid = projID.getText();
         String str_Date = startDate.getText();
@@ -218,13 +229,15 @@ public class App extends javax.swing.JFrame {
     //        String endDate = "2018-01-12";
     //        String lndinstr = "Investment Project Financing";
     //        String projID = "";
+    // https://search.worldbank.org/api/v2/wds?format=json&fct=docty_exact,count_exact,lang_exact,disclstat_exact&apilang=en&docty_key=540656&order=desc&os=0&srt=docdt&countrycode_exact=AW&lndinstr=Investment+Project+Financing&rows=10
+    // https://search.worldbank.org/api/v2/wds?format=json&fct=docty_exact&docty_key=540656&contrycode_exact=PE&lndinstr=Investment+Project+Financing&strdate=2018-01-01&enddate=2020-01-01&rows=10
 
-            String API = Utils.requestAPI(cntry, str_Date, end_Date, doct_type, projid, 10);
+            String API = Utils.requestAPI(cntry, str_Date, end_Date, doct_type, projid, 10000);
             System.out.println(API);
             try {
                 JsonObject docs = Utils.responseAPI(API);
                 Downloader.downloadFiles(docs, mainPath);
-                System.out.println("Downloaded in" + where);
+                System.out.println("Downloaded in: " + where);
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }

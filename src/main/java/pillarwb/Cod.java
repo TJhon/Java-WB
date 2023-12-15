@@ -1,10 +1,14 @@
-package Countries;
+package pillarwb;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class Cod {
     private static final Map<String, String> dict_country = new HashMap<>();
+    /**
+     * The function initializes a map with country names as keys and their corresponding country codes
+     * as values.
+     */
     private static void initializeCountries() {
         // Datos de países simulados para el ejemplo
         String[][] countryData = {
@@ -264,6 +268,12 @@ public class Cod {
             dict_country.put(country[0], country[1]);
         }
     }
+    /**
+     * The getCode function takes a country name as input and returns its corresponding code.
+     * 
+     * @param country The parameter "country" is a String that represents the name of a country.
+     * @return The code variable is being returned.
+     */
     public static String getCode(String country){
         initializeCountries();
         String code = dict_country.get(country);
