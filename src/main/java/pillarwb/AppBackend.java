@@ -64,10 +64,10 @@ public class AppBackend extends javax.swing.JFrame {
         jLabel3.setText("Save Directory:");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel4.setText("Start Date (aaaa-mm-dd):");
+        jLabel4.setText("Start Date (yyyy-mm-dd):");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel5.setText("End Date (aaaa-mm-dd):");
+        jLabel5.setText("End Date (yyyy-mm-dd):");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setText("Project ID:");
@@ -232,7 +232,7 @@ public class AppBackend extends javax.swing.JFrame {
     // https://search.worldbank.org/api/v2/wds?format=json&fct=docty_exact,count_exact,lang_exact,disclstat_exact&apilang=en&docty_key=540656&order=desc&os=0&srt=docdt&countrycode_exact=AW&lndinstr=Investment+Project+Financing&rows=10
     // https://search.worldbank.org/api/v2/wds?format=json&fct=docty_exact&docty_key=540656&contrycode_exact=PE&lndinstr=Investment+Project+Financing&strdate=2018-01-01&enddate=2020-01-01&rows=10
 
-            String API = Utils.requestAPI(cntry, str_Date, end_Date, doct_type, projid, 10);
+            String API = Utils.requestAPI(cntry, str_Date, end_Date, doct_type, projid, 10000);
             System.out.println(API);
             try {
                 JsonObject docs = Utils.responseAPI(API);
